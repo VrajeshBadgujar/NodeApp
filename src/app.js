@@ -28,14 +28,14 @@ app.set(hbs.registerPartials(partialspath))
 // routing
 
 app.get("/", (req, res)=>{
-    res.render("home")
+    res.render("index")
 })
 
 app.post("/contact", async(req, res)=>{
     try {
         const userData = new User(req.body);
         await userData.save();
-        res.status(201).render("home")
+        res.status(201).render("index")
     } catch (error) {
         res.status(500).send(error)
     }
